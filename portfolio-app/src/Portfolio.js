@@ -66,46 +66,56 @@ export default function Portfolio() {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#09090b', color: '#fafafa', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
 
-      {/* Navigation */}
-      <nav style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        transition: 'all 0.3s',
-        backgroundColor: scrolled ? 'rgba(9, 9, 11, 0.9)' : '#09090b',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid #27272a' : 'none'
+    {/* Navigation */}
+    <nav style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 50,
+      transition: 'all 0.3s',
+      backgroundColor: scrolled ? 'rgba(9, 9, 11, 0.9)' : '#09090b',
+      backdropFilter: scrolled ? 'blur(16px)' : 'none',
+      borderBottom: scrolled ? '1px solid #27272a' : 'none'
+    }}>
+      <div style={{
+        maxWidth: '80rem',
+        margin: '0 auto',
+        padding: '1rem 1.5rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between'
       }}>
-        <div style={{
-          maxWidth: '80rem',
-          margin: '0 auto',
-          padding: '1rem 1.5rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
+        {/* Update this div - Changed from MM to your custom logo */}
+        <div className="font-display gradient-text" style={{ 
+          fontSize: '1.5rem', 
+          fontWeight: 900,
+          letterSpacing: '2px',
+          background: 'linear-gradient(135deg, #00ff88 0%, #00d4ff 50%, #7b2ff7 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text'
         }}>
-          <div className="font-display gradient-text" style={{ fontSize: '1.5rem', fontWeight: 700 }}>MM</div>
-          <div style={{ display: 'flex', gap: '2rem' }}>
-            {['Home', 'About', 'Experience', 'Skills', 'Projects', 'Education', 'Contact'].map(item => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className={`nav-link font-mono ${activeSection === item.toLowerCase() ? 'active' : ''}`}
-                style={{
-                  fontSize: '0.875rem',
-                  letterSpacing: '0.05em',
-                  color: activeSection === item.toLowerCase() ? '#10b981' : '#a1a1aa'
-                }}
-              >
-                {item}
-              </button>
-            ))}
-      
-          </div>
+          MM
         </div>
-      </nav>
+        <div style={{ display: 'flex', gap: '2rem' }}>
+          {['Home', 'About', 'Experience', 'Skills', 'Projects', 'Education', 'Contact'].map(item => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item.toLowerCase())}
+              className={`nav-link font-mono ${activeSection === item.toLowerCase() ? 'active' : ''}`}
+              style={{
+                fontSize: '0.875rem',
+                letterSpacing: '0.05em',
+                color: activeSection === item.toLowerCase() ? '#10b981' : '#a1a1aa'
+              }}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      </div>
+    </nav>
 
       {/* Hero Section */}
       <section id="home" className="grid-pattern" style={{
